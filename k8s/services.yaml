@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: xpapibackend
+  name: xpapibackend
+  namespace: xp-apibackend
+spec:
+  ports:
+  - name: 1337-tcp
+    port: 1337
+    protocol: TCP
+    targetPort: 1337
+  selector:
+    app: xpapibackend
+    deployment: xpapibackend
+  type: ClusterIP
