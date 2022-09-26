@@ -23,6 +23,15 @@ spec:
     spec:
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/xp-apibackend/xpapibackend:latest
+        env:
+        - name: APP_KEYS
+          value: "x6k/58GQy4GwG85RfObxgg==,XMdkN20RqMU7IwmROeu0eg==,MJmsh0iwDO5ELkWMpyFGwQ==,/JzD6ou3CAQrB1jobqogkQ=="
+        - name: API_TOKEN_SALT
+          value: "kbLpLLw1zNWLzJKYC7cnkw=="
+        - name: ADMIN_JWT_SECRET
+          value: "cWNoLG4jK/uC0MDiJURO0Q=="
+        - name: JWT_SECRET
+          value: "FUQ4GHMUDLRRMRi2JuXHIg=="
         imagePullPolicy: IfNotPresent
         name: xpapibackend
         ports:
