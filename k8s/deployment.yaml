@@ -22,7 +22,7 @@ spec:
         deployment: xpapibackend
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/xp-apibackend/xpapibackend@sha256:92884bb1b404d99679e74a5ea5089616bbea2833c71ecaa49df763a6a6a4a9cb
+      - image: image-registry.openshift-image-registry.svc:5000/xp-apibackend/xpapibackend:latest
         imagePullPolicy: IfNotPresent
         name: xpapibackend
         ports:
