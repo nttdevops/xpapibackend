@@ -4,7 +4,7 @@ metadata:
   labels:
     app: xpapibackend
   name: xpapibackend
-  namespace: xp-apibackend
+  namespace: privapi
 spec:
   replicas: 1
   selector:
