@@ -1,6 +1,5 @@
-#FROM node:14.19.1
-FROM image-registry.openshift-image-registry.svc:5000/xp-apibackend/node:14.19.1
-
+FROM node:14.19.1
+#FROM image-registry.openshift-image-registry.svc:5000/xp-apibackend/node:14.19.1
 
 WORKDIR /srv/app
 COPY ./package.json ./

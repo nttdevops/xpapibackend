@@ -11,5 +11,19 @@ tkn pipeline start build-and-deploy \
     -p git-url=https://github.com/nttdevops/xpapibackend.git \
     -p git-revision=main \
     -p IMAGE=image-registry.openshift-image-registry.svc:5000/xp-apibackend/xpapibackend \
-    --use-param-defaults
+    --use-param-defaults \
+    --dry-run
 
+
+
+
+
+tkn pipeline start build-and-deploy \
+    --namespace privapi \
+    -w name=shared-workspace,claimName=source-pvc \
+    -p deployment-name=xpapibackend \
+    -p git-url=https://github.com/nttdevops/xpapibackend.git \
+    -p git-revision=main \
+    -p IMAGE=image-registry.openshift-image-registry.svc:5000/xp-apibackend/xpapibackend \
+    --use-param-defaults \
+    --dry-run
