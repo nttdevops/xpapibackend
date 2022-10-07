@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xpapibackend-ingress
+  namespace: capps
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    #cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    #kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - privapi.onprem.nttscloud.com
+    secretName: xpapibackend-tls
+  rules:
+  - host: privapi.onprem.nttscloud.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: xpapibackend
+              port:
+                number: 1337

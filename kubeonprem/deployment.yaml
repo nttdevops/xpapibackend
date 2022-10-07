@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: xpapibackend
+  name: xpapibackend
+  namespace: capps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xpapibackend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: xpapibackend
+        deployment: xpapibackend
+    spec:
+      containers:
+      - image: docker.io/nutkondee/xpapibackend:v1
+        env:
+        - name: APP_KEYS
+          value: "x6k/58GQy4GwG85RfObxgg==,XMdkN20RqMU7IwmROeu0eg==,MJmsh0iwDO5ELkWMpyFGwQ==,/JzD6ou3CAQrB1jobqogkQ=="
+        - name: API_TOKEN_SALT
+          value: "kbLpLLw1zNWLzJKYC7cnkw=="
+        - name: ADMIN_JWT_SECRET
+          value: "cWNoLG4jK/uC0MDiJURO0Q=="
+        - name: JWT_SECRET
+          value: "FUQ4GHMUDLRRMRi2JuXHIg=="
+        - name: DATABASE_HOST
+          value: "hippo-primary.cappdbs.svc"
+        - name: DATABASE_PASSWORD
+          value: "f9c273QKNEbYlpWetU](YGvh"
+        imagePullPolicy: IfNotPresent
+        name: xpapibackend
+        ports:
+        - containerPort: 1337
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+
