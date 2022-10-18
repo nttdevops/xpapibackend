@@ -32,6 +32,10 @@ spec:
           value: "cWNoLG4jK/uC0MDiJURO0Q=="
         - name: JWT_SECRET
           value: "FUQ4GHMUDLRRMRi2JuXHIg=="
+        - name: DATABASE_HOST
+          value: "hippo-primary.cappdbs.svc"
+        - name: DATABASE_PASSWORD
+          value: "ojtq>jK-zF=rJ8aBXUA<YF22"
         imagePullPolicy: IfNotPresent
         name: xpapibackend
         ports:
